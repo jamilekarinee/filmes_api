@@ -1,0 +1,24 @@
+<h1>Buscar filme</h1>
+<form [formGroup]="formBusca">
+       <label for="titulo" class="form-label">
+              Título
+       </label>
+       <input class="form-control" type="text" 
+              name="titulo" id="titulo" formControlName="titulo">
+       <input class="btn btn-info mt-3" type="button" value="Buscar" 
+              [disabled]="formBusca.invalid" (click)="buscar()">
+</form>
+
+<div *ngIf="filme != undefined" 
+     class="card" 
+     style="width:15rem; height: auto;">
+     <img [src]="filme.Poster" class="card-img-top" alt="Poster">
+       <div class="card-body">
+              <h5 class="card-title">{{filme.Title}}</h5>
+              <ul class="card-text">
+                 <li>Diretor: {{filme.Director}}</li>
+                 <li>Ano: {{filme.Year}}</li>
+                 <li>Gênero: {{filme.Genre}}</li>
+              </ul>
+       </div>
+</div>
